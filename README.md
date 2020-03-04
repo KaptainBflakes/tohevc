@@ -11,7 +11,7 @@ You can do this in vlc by right clicking on the video then clicking tools>codec>
 
 
 The recode_list is the list of files to recode.
-You can use extlist, another program I made which easily makes compatible lists of all files within a directory of a certain type, to create it.
+You can use extlist, another program I made, which easily makes compatible lists of all files within a directory of a certain type, to create it.
 extlist can be found here: https://github.com/KaptainBflakes/extlist
 If you want to use your own input, like if you just want to make the list in a text editor, end each path with a newline char '\n' ie just hit return after every path or tohevcbat's filereader will miss-store the file paths into memory and the file won't convert.
 Should work with linux if you like to read for hours to learn to do nothing of consequence.
