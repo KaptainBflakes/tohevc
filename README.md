@@ -22,4 +22,5 @@ Use on the command line.
 
 tohevcdtsbat
 Desc: The same as "tohevcbat" but uses dts audio encoding. Useful for reducing the size of legitimately obtained movies and shows with dts audio. This is best used to convert bluray tv sets.
+If you don't use this on something with dts audio, the audio will fuck up and only retain 2, wrong audio tracks, upon recoding.
 Usage: The exact same as the other one. The only difference is slightly different audio settings.
