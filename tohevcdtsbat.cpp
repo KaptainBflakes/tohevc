@@ -36,7 +36,7 @@ int main(int argc, char** argv){
 		//command creation
 		string cmd="ffmpeg -c:v h264_cuvid -i ";	cmd+=worklist[i];//input path
 		cmd+=" -c:v hevc_nvenc -b:v ";				cmd+=argv[1];//bitrate
-		cmd+=" ";									cmd+=temp;//output path
+		cmd+=" -c:a dts -strict -2 ";				cmd+=temp;//output path
 		system(&cmd[0]);//start recoding the file
 	}
 	return 0;
