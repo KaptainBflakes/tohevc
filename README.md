@@ -2,7 +2,7 @@
 Converts h264 files to hevc. Uses hardware encoding. 
 
 tohevcbat
-Desc:   converts a list of h264 files to hevc encoding using nvenc (gpu encoding). Useful for reducing the size of large video files like certain vr videos that are "ahem" very much safe for work.
+Desc:   converts a list of h264 files to hevc encoding using nvenc (gpu encoding). Useful for reducing the size of large video files like vr videos.
 Usage:  "tohevcbat bitrate recode_list.txt"
 
 Bitrate should be in ffmpeg format. For example: "1M" means 1 megabit per second and "1000K" means 1000 kilabit per second.
