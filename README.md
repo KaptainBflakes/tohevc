@@ -19,9 +19,7 @@ Should work with linux if you like to read for hours to learn to do nothing of c
 Install: Needs an ffmpeg install linked to the system path.
 Put the executable into a directory that is included in the PATH system environment variable.
 Use on the command line.
-Profit.
 
 tohevcdtsbat
 Desc: The same as "tohevcbat" but uses dts audio encoding. Useful for reducing the size of legitimately obtained movies and shows with dts audio. This is best used to convert bluray tv sets.
-Usage: The exact same as the other one, retard. The only difference is slightly different audio settings.
-Install: Alex is a stupid ni-
+Usage: The exact same as the other one. The only difference is slightly different audio settings.
