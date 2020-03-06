@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
+char cores='4';
 using namespace std;
 int main(int argc, char** argv){
 	//arg 1 is bitrate arg 2 is worklist. Worklist is separated by line returns.
@@ -28,15 +28,16 @@ int main(int argc, char** argv){
 		int insrtn_indx;for(int c=worklist[i].size()-1;c>=0;c--){if(worklist[i][c]=='.'){insrtn_indx=c;break;}}
 		for(int c=0;c<worklist[i].size();c++){
 			if(c==insrtn_indx){
-				temp+="_hevc.mp4";
-				break;
+				temp+="_hevc.mkv";break;
 			}
 			temp+=worklist[i][c];
 		}
 		//command creation
 		string cmd="ffmpeg -c:v h264_cuvid -i ";	cmd+=worklist[i];//input path
 		cmd+=" -c:v hevc_nvenc -b:v ";				cmd+=argv[1];//bitrate
+		cmd+=" -y -threads ";						cmd+=cores;//compute threads
 		cmd+=" ";									cmd+=temp;//output path
+		cout<<cmd<<'\n';
 		system(&cmd[0]);//start recoding the file
 	}
 	return 0;
