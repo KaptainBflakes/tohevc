@@ -2,10 +2,10 @@
 #include <fstream>
 #include <string>
 #include <vector>
-char cores='4';
+char cores='2';
 using namespace std;
 int main(int argc, char** argv){
-	//arg 1 is bitrate arg 2 is worklist. Worklist is separated by line returns.
+	//arg 1 is bitrate, arg 2 is worklist, arg3 is wether to use crf instead of average bitrate. Worklist is separated by line returns.
 	//Always include an ending newline or it will miss the last file.
 	//Note this only works well with stereo audio. DTS based audio is going to require a rewrite in order to work.
 	
@@ -19,6 +19,7 @@ int main(int argc, char** argv){
 			else{out+=c;}
 		}
 	}
+	bool crf=false;
 	
 	//mainwork
 	for(int i=0;i<worklist.size();i++){
@@ -34,10 +35,11 @@ int main(int argc, char** argv){
 		}
 		//command creation
 		string cmd="ffmpeg -c:v h264_cuvid -i ";	cmd+=worklist[i];//input path
-		cmd+=" -c:v hevc_nvenc -b:v ";				cmd+=argv[1];//bitrate
+		cmd+=" -c:v hevc_nvenc "; 					
+		if(argc>3&&argv[3]=="/crf"){cmd+="-crf ";}else{cmd+="-b:v ";}cmd+=argv[1];//bitrate mode and rate dictator
 		cmd+=" -y -threads ";						cmd+=cores;//compute threads
 		cmd+=" ";									cmd+=temp;//output path
-		cout<<cmd<<'\n';
+		cout<<cmd<<'\n';//Output just in case there were bad inputs needing revaluation
 		system(&cmd[0]);//start recoding the file
 	}
 	return 0;

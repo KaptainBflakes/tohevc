@@ -5,7 +5,7 @@
 
 using namespace std;
 int main(int argc, char** argv){
-	//arg 1 is bitrate arg 2 is worklist. Worklist is separated by line returns.
+	//arg 1 is bitrate arg 2 is worklist. arg3 is wether to use crf instead of average bitrate. Worklist is separated by line returns.
 	//Always include an ending newline or it will miss the last file.
 	//Note this only works well with stereo audio. DTS based audio is going to require a rewrite in order to work.
 	
@@ -28,14 +28,14 @@ int main(int argc, char** argv){
 		int insrtn_indx;for(int c=worklist[i].size()-1;c>=0;c--){if(worklist[i][c]=='.'){insrtn_indx=c;break;}}
 		for(int c=0;c<worklist[i].size();c++){
 			if(c==insrtn_indx){
-				temp+="_hevc.mp4";
-				break;
+				temp+="_hevc.mkv";break;
 			}
 			temp+=worklist[i][c];
 		}
 		//command creation
 		string cmd="ffmpeg -c:v h264_cuvid -i ";	cmd+=worklist[i];//input path
-		cmd+=" -c:v hevc_nvenc -b:v ";				cmd+=argv[1];//bitrate
+		cmd+=" -c:v hevc_nvenc ";//video codec
+		if(argc>3&&argv[3]=="/crf"){cmd+="-crf ";}else{cmd+=" -b:v ";}cmd+=argv[1];//bitrate dictation
 		cmd+=" -c:a dts -strict -2 ";				cmd+=temp;//output path
 		system(&cmd[0]);//start recoding the file
 	}
