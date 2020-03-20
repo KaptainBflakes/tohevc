@@ -1,7 +1,7 @@
 # tohevc
 Converts h264 files to h265 using hevc_nvenc(nvidia hardware encoding) as well as hardware decoding.
 
-ATTENTION! NO LONGER SUPPORTED AS IT'S FUNCTIONALITY IS SUPERCEDED BY (https://github.com/KaptainBflakes/vidconv)
+ATTENTION! NO LONGER RECOMMENDED AS IT'S FUNCTIONALITY IS SUPERCEDED BY (https://github.com/KaptainBflakes/vidconv)
 
 USE THIS ONLY IF YOU DON'T UNDERSTAND VIDCONV OR ARE NOT INTERESTED IN MORE VARIED BATCH VIDEO CONVERSION
 
